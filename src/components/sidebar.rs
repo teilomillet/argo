@@ -29,12 +29,6 @@ pub fn Sidebar(
         aside { class: "sidebar",
             div { class: "sidebar-header",
                 h2 { "Notes" }
-                button {
-                    class: "btn-new",
-                    onclick: move |_| on_new.call(()),
-                    title: "New Note (Ctrl+N)",
-                    "+"
-                }
             }
             div { class: "sidebar-search",
                 input {
@@ -72,10 +66,16 @@ pub fn Sidebar(
                             "No matching notes"
                         } else {
                             "No notes yet"
-                            br {}
-                            "Click + to create one"
                         }
                     }
+                }
+            }
+            div { class: "sidebar-footer",
+                button {
+                    class: "btn-new-full",
+                    onclick: move |_| on_new.call(()),
+                    title: "New Note (Ctrl+N)",
+                    "+ New Note"
                 }
             }
         }

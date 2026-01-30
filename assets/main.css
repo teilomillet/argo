@@ -358,25 +358,28 @@ body {
     letter-spacing: 0.08em;
 }
 
-.btn-new {
+/* Sidebar footer with new button */
+.sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.btn-new-full {
+    width: 100%;
     background: var(--accent);
     border: none;
     color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    font-size: 1.25rem;
-    font-weight: 300;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all var(--ui-transition);
 }
 
-.btn-new:hover {
+.btn-new-full:hover {
     background: var(--accent-hover);
-    transform: scale(1.05);
 }
 
 .notes-list {
