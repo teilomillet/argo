@@ -92,7 +92,7 @@ body {
 }
 
 .toolbar:hover,
-.app-container:hover .toolbar {
+.app-container:not(.focus-mode):hover .toolbar {
     opacity: 1;
 }
 
