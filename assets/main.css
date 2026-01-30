@@ -228,9 +228,15 @@ body {
     z-index: 50;
     transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
                 background 0.25s ease,
-                box-shadow 0.25s ease;
+                box-shadow 0.25s ease,
+                opacity 0.25s ease;
     padding: 0.75rem 0;
     border-radius: 0 8px 8px 0;
+    opacity: 0;
+}
+
+.outline:hover {
+    opacity: 1;
 }
 
 /* Expanded state on hover (large screens only) */
