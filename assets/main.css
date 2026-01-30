@@ -220,10 +220,9 @@ body {
 .outline {
     position: fixed;
     left: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 5rem;
     width: 180px;
-    max-height: 60vh;
+    max-height: calc(100vh - 8rem);
     display: flex;
     flex-direction: column;
     z-index: 50;
