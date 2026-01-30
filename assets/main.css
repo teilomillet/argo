@@ -220,25 +220,41 @@ body {
 .outline {
     position: fixed;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    max-height: 80vh;
+    top: 0;
+    bottom: 0;
+    width: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     z-index: 50;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 1rem 0;
-    opacity: 0;
+    padding: 2rem 0;
 }
 
 .outline:hover {
-    opacity: 1;
-    width: 260px;
+    width: 280px;
     background: var(--bg-secondary);
     box-shadow: var(--panel-shadow);
-    border-radius: 0 12px 12px 0;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1.25rem;
+}
+
+/* Visible indicator line when collapsed */
+.outline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60px;
+    background: var(--text-muted);
+    border-radius: 2px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.outline:hover::before {
+    opacity: 0;
 }
 
 .outline-track {
@@ -1083,14 +1099,28 @@ body {
     display: none !important;
 }
 
-.focus-mode .outline,
+.focus-mode .outline {
+    width: 20px;
+}
+
+.focus-mode .outline::before {
+    opacity: 0.15;
+}
+
+.focus-mode .outline:hover {
+    width: 280px;
+}
+
+.focus-mode .outline:hover::before {
+    opacity: 0;
+}
+
 .focus-mode .sidebar {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
 
-.focus-mode .outline:hover,
 .focus-mode .sidebar:hover {
     opacity: 1;
     pointer-events: auto;
