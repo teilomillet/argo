@@ -220,7 +220,7 @@ body {
 .outline {
     position: fixed;
     left: 2.5rem;
-    top: 4.5rem;
+    top: 5.5rem;
     width: 180px;
     max-height: calc(100vh - 8rem);
     display: flex;
