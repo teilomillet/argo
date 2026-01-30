@@ -219,15 +219,21 @@ body {
 /* ========== OUTLINE / TOC (LessWrong-inspired) ========== */
 .outline {
     position: fixed;
-    left: 2.5rem;
-    top: 5.5rem;
-    width: 180px;
-    max-height: calc(100vh - 8rem);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    padding: 5.5rem 0 2rem 2.5rem;
     display: flex;
     flex-direction: column;
     z-index: 50;
-    padding: 0;
     overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.outline:hover {
+    opacity: 1;
 }
 
 .outline-track {
@@ -320,7 +326,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    z-index: 50;
+    z-index: 250;
     box-shadow: var(--panel-shadow);
     animation: slideInRight var(--ui-transition) forwards;
 }
