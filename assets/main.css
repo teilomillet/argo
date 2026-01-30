@@ -219,7 +219,7 @@ body {
 /* ========== OUTLINE / TOC (LessWrong-inspired) ========== */
 .outline {
     position: fixed;
-    left: 0.75rem;
+    left: 2.5rem;
     top: 4.5rem;
     width: 180px;
     max-height: calc(100vh - 8rem);
