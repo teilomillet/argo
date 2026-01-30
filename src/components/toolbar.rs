@@ -6,10 +6,12 @@ pub fn Toolbar(
     is_preview_visible: bool,
     is_focus_mode: bool,
     has_note: bool,
+    font_size: u8,
     on_toggle_sidebar: EventHandler<()>,
     on_toggle_preview: EventHandler<()>,
     on_toggle_focus: EventHandler<()>,
     on_delete: EventHandler<()>,
+    on_font_size_change: EventHandler<u8>,
 ) -> Element {
     let sidebar_class = if is_sidebar_visible { "btn-toolbar active" } else { "btn-toolbar" };
     let preview_class = if is_preview_visible { "btn-toolbar active" } else { "btn-toolbar" };
@@ -17,6 +19,30 @@ pub fn Toolbar(
 
     rsx! {
         div { class: "toolbar",
+            // Font size controls
+            if has_note {
+                button {
+                    class: "btn-toolbar",
+                    onclick: move |_| {
+                        if font_size > 14 {
+                            on_font_size_change.call(font_size - 2);
+                        }
+                    },
+                    title: "Decrease font size",
+                    span { class: "icon-font-size", "A−" }
+                }
+                button {
+                    class: "btn-toolbar",
+                    onclick: move |_| {
+                        if font_size < 32 {
+                            on_font_size_change.call(font_size + 2);
+                        }
+                    },
+                    title: "Increase font size",
+                    span { class: "icon-font-size icon-font-size-large", "A+" }
+                }
+                div { class: "toolbar-divider" }
+            }
             if has_note {
                 button {
                     class: preview_class,

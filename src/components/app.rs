@@ -7,6 +7,7 @@ use crate::components::status_bar::StatusBar;
 use crate::components::toast::Toast;
 use crate::components::toolbar::Toolbar;
 use crate::state::{AppState, SaveStatus};
+use dioxus::document::eval;
 use dioxus::prelude::*;
 use std::time::Duration;
 
@@ -17,6 +18,7 @@ pub fn App() -> Element {
     let mut is_quick_switcher_open = use_signal(|| false);
     let mut toast_timer = use_signal(|| 0u32);
     let mut jump_to_line = use_signal(|| None::<usize>);
+    let mut font_size = use_signal(|| 20u8);
 
     // Auto-save effect with debounce
     let save_status = (state.read().save_status)();
@@ -114,10 +116,19 @@ pub fn App() -> Element {
                 is_preview_visible,
                 is_focus_mode,
                 has_note,
+                font_size: font_size(),
                 on_toggle_sidebar: move |_| state.write().toggle_sidebar(),
                 on_toggle_preview: move |_| state.write().toggle_preview(),
                 on_toggle_focus: move |_| state.write().toggle_focus_mode(),
                 on_delete: move |_| state.write().delete_current_note(),
+                on_font_size_change: move |size: u8| {
+                    font_size.set(size);
+                    let js = format!(
+                        "document.documentElement.style.setProperty('--font-size-editor', '{}px')",
+                        size
+                    );
+                    eval(&js);
+                },
             }
 
             div { class: "main-content",
