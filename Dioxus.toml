@@ -8,6 +8,11 @@ base_path = "argo"
 
 [web.resource]
 style = ["/assets/main.css"]
+script = []
+
+[web.resource.dev]
+style = []
+script = []
 
 [web.watcher]
 reload_html = true
