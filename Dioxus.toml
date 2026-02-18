@@ -26,17 +26,3 @@ icon = ["assets/icons/icon.png", "assets/icons/icon.icns"]
 [desktop]
 always_on_top = false
 
-[[desktop.menu.sub_menu]]
-name = "File"
-items = [
-    { name = "New Note", accelerator = "CmdOrCtrl+N", event = "new_note" },
-    { name = "---" },
-    { name = "Quit", accelerator = "CmdOrCtrl+Q", event = "quit" },
-]
-
-[[desktop.menu.sub_menu]]
-name = "View"
-items = [
-    { name = "Toggle Sidebar", accelerator = "CmdOrCtrl+B", event = "toggle_sidebar" },
-    { name = "Toggle Preview", accelerator = "CmdOrCtrl+P", event = "toggle_preview" },
-]
