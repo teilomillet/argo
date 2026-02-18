@@ -21,6 +21,7 @@ watch_path = ["src", "assets"]
 [bundle]
 identifier = "com.mime.app"
 publisher = "Mime"
+icon = ["assets/icons/icon.png", "assets/icons/icon.icns"]
 
 [desktop]
 always_on_top = false
